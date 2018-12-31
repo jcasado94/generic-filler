@@ -6,8 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import app from './reducers/reducers';
+import CookieStorage from './CookieStorage';
 
 const store = createStore(app);
+window.cookieStorage = new CookieStorage();
 
 ReactDOM.render(
   <Provider store={store}>
