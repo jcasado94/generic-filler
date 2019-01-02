@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import { addUsage, removeUsage } from '../actions/actions';
 import ProdUsages from '../components/ProdUsages';
-import { ALL_USAGES } from '../global/global';
+import UsagesHandler from '../handlers/UsagesHandler';
 
 
 const getUsagesList = (prodUsages) => {
-  return Object.keys(ALL_USAGES).map(usageId => ({
+  const allUsages = UsagesHandler.getAllUsages();
+  return Object.keys(allUsages).map(usageId => ({
     usageId,
-    name: ALL_USAGES[usageId],
+    name: allUsages[usageId],
     pos: prodUsages.indexOf(usageId),
     key: usageId,
   }));

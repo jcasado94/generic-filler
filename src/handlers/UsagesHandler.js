@@ -1,13 +1,19 @@
 
+const allUsages = {};
+
 export default {
 
   getAllUsages() {
-    return {
-      'one': 'One',
-      'two': 'Two',
-      'three': 'Three',
-      'four': 'Four'
-    }
+    return allUsages || getAllUsages();
   }
 
+}
+
+const getAllUsages = () => {
+  return {
+    'one': 'One',
+    'two': 'Two',
+    'three': 'Three',
+    'four': 'Four'
+  }
 }
