@@ -11,7 +11,7 @@ import UserHandler from './handlers/UserHandler';
 
 const store = createStore(app);
 window.cookieStorage = new CookieStorage();
-UserHandler.getUser();
+UserHandler.setUser();
 
 ReactDOM.render(
   <Provider store={store}>
