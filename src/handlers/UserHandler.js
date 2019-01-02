@@ -1,7 +1,7 @@
 
 export default {
 
-  getUser() {
+  setUser() {
     if (!window.cookieStorage.getCookie('username')) {
       window.cookieStorage.setCookie('username', this.createUser(new Date().getTime()));
     }
