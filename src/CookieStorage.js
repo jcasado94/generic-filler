@@ -12,6 +12,7 @@ class CookieStorage {
   getCookie(name) {
     return this.cookies[name];
   }
+
 }
 
 const readCookies = () => {

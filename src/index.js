@@ -7,9 +7,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import app from './reducers/reducers';
 import CookieStorage from './CookieStorage';
+import UserHandler from './handlers/UserHandler';
 
 const store = createStore(app);
 window.cookieStorage = new CookieStorage();
+UserHandler.getUser();
 
 ReactDOM.render(
   <Provider store={store}>
