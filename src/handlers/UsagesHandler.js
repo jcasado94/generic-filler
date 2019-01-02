@@ -1,10 +1,11 @@
 
-const allUsages = {};
+let allUsages = null;
 
 export default {
 
   getAllUsages() {
-    return allUsages || getAllUsages();
+    allUsages = allUsages || getAllUsages();
+    return allUsages
   }
 
 }
