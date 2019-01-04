@@ -12,8 +12,16 @@ export default {
     return username;
   },
 
-  getUserInfo(username) {
-    // return current page
+  getCurrentUserProd(username) {
+    // retrieve user current product DB logic
+    const currentProd = 'product';
+    return new Promise(currentProd);
+  },
+
+  getCurrentProdUsages(username) {
+    // retrieve user current product usages DB logic
+    const currentProdUsages = ['one', 'three', 'five'];
+    return new Promise(currentProdUsages);
   }
 
 }

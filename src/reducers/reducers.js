@@ -3,9 +3,10 @@ import {
   ADD_USAGE,
   REMOVE_USAGE
 } from '../actions/actions'
+import UserHandler from '../handlers/UserHandler'
 
 const defaultUsagesState = {
-  prodUsages: []
+  prodUsages: UserHandler.getCurrentProdUsages(window.cookieStorage.getCookie('username'))
 }
 
 const usages = (state = defaultUsagesState, action) => {
