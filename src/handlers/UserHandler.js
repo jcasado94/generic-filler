@@ -1,27 +1,27 @@
 
 export default {
 
-  setUser() {
-    if (!window.cookieStorage.getCookie('username')) {
-      window.cookieStorage.setCookie('username', this.createUser(new Date().getTime()));
-    }
-  },
-
   createUser(username) {
-    // insert username in DB logic
-    return username;
+    return new Promise((resolve, reject) => {
+      // insert username in DB logic
+      resolve(username);
+    })
   },
 
   getCurrentUserProd(username) {
-    // retrieve user current product DB logic
-    const currentProd = 'product';
-    return new Promise(currentProd);
+    return new Promise((resolve, reject) => {
+      // retrieve user current product DB logic
+      const currentProd = 'product';
+      resolve(currentProd);
+   })
   },
 
   getCurrentProdUsages(username) {
-    // retrieve user current product usages DB logic
-    const currentProdUsages = ['one', 'three', 'five'];
-    return new Promise(currentProdUsages);
+    return new Promise((resolve, reject) => {
+      // retrieve user current product usages DB logic
+      const currentProdUsages = ['one', 'three', 'two'];
+      resolve(currentProdUsages);
+    })
   }
 
 }

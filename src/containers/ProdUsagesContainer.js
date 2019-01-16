@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
-import { addUsage, removeUsage } from '../actions/actions';
+import { addUsage, removeUsage, setUsages } from '../actions/actions';
 import ProdUsages from '../components/ProdUsages';
-import UsagesHandler from '../handlers/UsagesHandler';
 
 
-const getUsagesList = (prodUsages) => {
-  const allUsages = UsagesHandler.getAllUsages();
+const getUsagesList = (prodUsages, allUsages) => {
   return Object.keys(allUsages).map(usageId => ({
     usageId,
     name: allUsages[usageId],
@@ -14,9 +12,9 @@ const getUsagesList = (prodUsages) => {
   }));
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    usages: getUsagesList(state.usages.prodUsages)
+    usages: getUsagesList(state.usages.prodUsages, ownProps.allUsages)
   }
 }
 
@@ -26,8 +24,11 @@ const mapDispatchToProps = dispatch => {
       if (i !== -1) {
         dispatch(removeUsage(i));
       } else {
-        dispatch(addUsage(usageId))
+        dispatch(addUsage(usageId));
       }
+    },
+    onUsagesFetched: (prodUsages) => {
+      dispatch(setUsages(prodUsages));
     }
   }
 }

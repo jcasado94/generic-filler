@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
 import Usage from './Usage';
+import UserHandler from '../handlers/UserHandler';
 
 class ProdUsages extends Component {
+
+  constructor() {
+    super();
+    this.getProdUsages();
+  }
+
+  getProdUsages() {
+    UserHandler.getCurrentProdUsages(window.cookieStorage.getCookie('username')).then(
+      function(prodUsages) {
+        this.props.onUsagesFetched(prodUsages);
+      }.bind(this)
+    )
+  }
 
   render() {
     return(

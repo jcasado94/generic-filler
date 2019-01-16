@@ -1,20 +1,16 @@
 
-let allUsages = null;
-
 export default {
 
   getAllUsages() {
-    allUsages = allUsages || getAllUsages();
-    return allUsages
+    return new Promise((resolve, reject) => {
+      // DB logic
+      resolve({
+        'one': 'One',
+        'two': 'Two',
+        'three': 'Three', 
+        'four': 'Four'
+      });
+    })
   }
 
-}
-
-const getAllUsages = () => {
-  return {
-    'one': 'One',
-    'two': 'Two',
-    'three': 'Three',
-    'four': 'Four'
-  }
 }

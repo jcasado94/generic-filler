@@ -1,15 +1,12 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 import {
   ADD_USAGE,
-  REMOVE_USAGE
-} from '../actions/actions'
-import UserHandler from '../handlers/UserHandler'
+  REMOVE_USAGE,
+  SET_USAGES
+} from '../actions/actions';
 
-const defaultUsagesState = {
-  prodUsages: UserHandler.getCurrentProdUsages(window.cookieStorage.getCookie('username'))
-}
 
-const usages = (state = defaultUsagesState, action) => {
+const usages = (state = {prodUsages: []}, action) => {
   switch (action.type) {
     case ADD_USAGE:
       return {
@@ -25,10 +22,14 @@ const usages = (state = defaultUsagesState, action) => {
           ...state.prodUsages.slice(action.i+1)
         ]
       }
+    case SET_USAGES:
+      return {
+        prodUsages: action.prodUsages
+      }
     default:
       return state;
   }
-}
+};
 
 const app = combineReducers({
   usages
