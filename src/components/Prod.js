@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import ProdTitle from './ProdTitle'
 import ProdImage from './ProdImage'
-
 import ProdUsagesContainer from '../containers/ProdUsagesContainer';
 import UsagesHandler from '../handlers/UsagesHandler';
 
